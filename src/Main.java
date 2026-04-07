@@ -1,41 +1,36 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
 
         // 1. Display Header
         System.out.println("==========================================");
-        System.out.println(" UC2 - Add Passenger Bogies to Train ");
+        System.out.println(" UC3 - Track Unique Bogie IDs ");
         System.out.println("==========================================\n");
 
-        // 2. CREATE: Initialize the ArrayList
-        List<String> passengerBogies = new ArrayList<>();
+        // 2. Create a Set to store unique bogie IDs
+        // HashSet does not allow duplicate values
+        Set<String> bogies = new HashSet<>();
 
-        // 3. ADD: Adding new bogies to the train
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // 3. ADD IDs (including duplicates)
+        bogies.add("BG101");
+        bogies.add("BG102");
+        bogies.add("BG103");
+        bogies.add("BG104");
 
-        System.out.println("After Adding Bogies:");
-        System.out.println("Passenger Bogies : " + passengerBogies);
-        System.out.println();
+        // Attempting to add duplicate entries
+        // These will be internally ignored by the HashSet
+        bogies.add("BG101");
+        bogies.add("BG102");
 
-        // 4. DELETE: Remove 'AC Chair'
-        passengerBogies.remove("AC Chair");
-        System.out.println("After Removing 'AC Chair':");
-        System.out.println("Passenger Bogies : " + passengerBogies);
-        System.out.println();
+        // 4. Display the unique bogie identifiers
+        System.out.println("Bogie IDs After Insertion:");
+        System.out.println(bogies);
 
-        // 5. READ: Check if 'Sleeper' exists using contains()
-        System.out.println("Checking if 'Sleeper' exists:");
-        boolean hasSleeper = passengerBogies.contains("Sleeper");
-        System.out.println("Contains Sleeper? : " + hasSleeper);
-        System.out.println();
-
-        // 6. Display Final State
-        System.out.println("Final Train Passenger Consist:");
-        System.out.println(passengerBogies);
-        System.out.println("\nUC2 operations completed successfully...");
+        // 5. Conclusion
+        System.out.println("\nNote:");
+        System.out.println("Duplicates are automatically ignored by HashSet.");
+        System.out.println("\nUC3 uniqueness validation completed...");
     }
 }
