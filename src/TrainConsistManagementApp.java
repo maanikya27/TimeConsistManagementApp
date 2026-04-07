@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 public class TrainConsistManagementApp {
 
@@ -7,26 +6,31 @@ public class TrainConsistManagementApp {
         // Welcome message
         System.out.println("=== Train Consist Management App ===");
 
-        // Initialize an empty train consist using ArrayList
-        List<String> passengerBogies = new ArrayList<>();
+        // Initialize a LinkedList for ordered bogie IDs
+        LinkedList<String> trainConsist = new LinkedList<>();
 
-        // Add passenger bogies
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // Add bogies in sequence
+        trainConsist.add("Engine");
+        trainConsist.add("Sleeper");
+        trainConsist.add("AC");
+        trainConsist.add("Cargo");
+        trainConsist.add("Guard");
 
-        // Display bogies after insertion
-        System.out.println("Passenger bogies after insertion: " + passengerBogies);
+        System.out.println("Initial train consist: " + trainConsist);
 
-        // Remove one bogie (AC Chair)
-        passengerBogies.remove("AC Chair");
-        System.out.println("Passenger bogies after removing AC Chair: " + passengerBogies);
+        // Insert Pantry Car at position 2 (index-based insertion)
+        trainConsist.add(2, "Pantry Car");
+        System.out.println("After inserting Pantry Car at position 2: " + trainConsist);
 
-        // Check if Sleeper exists
-        boolean hasSleeper = passengerBogies.contains("Sleeper");
-        System.out.println("Does Sleeper bogie exist? " + hasSleeper);
+        // Remove the first bogie (Engine)
+        trainConsist.removeFirst();
+        System.out.println("After removing first bogie: " + trainConsist);
 
-        // Final list state
-        System.out.println("Final passenger bogies: " + passengerBogies);
+        // Remove the last bogie (Guard)
+        trainConsist.removeLast();
+        System.out.println("After removing last bogie: " + trainConsist);
+
+        // Final ordered train consist
+        System.out.println("Final ordered train consist: " + trainConsist);
     }
-}
+}}
